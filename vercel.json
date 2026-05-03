@@ -5,30 +5,22 @@
       "src": "client/package.json",
       "use": "@vercel/static-build",
       "config": {
-        "distDir": "build"
+        "distDir": "dist"
       }
     },
     {
       "src": "server/server.js",
       "use": "@vercel/node"
-    },
-    {
-      "src": "service/server.py",
-      "use": "@vercel/python"
     }
   ],
   "rewrites": [
-    {
-      "source": "/api/status",
-      "destination": "/service/server.py"
-    },
     {
       "source": "/api/(.*)",
       "destination": "/server/server.js"
     },
     {
       "source": "/(.*)",
-      "destination": "/client/$1"
+      "destination": "/client/dist/$1"
     }
   ]
 }
