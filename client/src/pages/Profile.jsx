@@ -118,7 +118,7 @@ const Profile = () => {
     if (avatarPreview) return avatarPreview;
     if (user?.avatar) {
       if (user.avatar.startsWith('http')) return user.avatar;
-      return `${process.env.REACT_APP_BACKEND_URL}${user.avatar}`;
+      return `${import.meta.env.VITE_BACKEND_URL || ''}${user.avatar}`;
     }
     return 'https://images.unsplash.com/photo-1652471943570-f3590a4e52ed?w=200';
   };
